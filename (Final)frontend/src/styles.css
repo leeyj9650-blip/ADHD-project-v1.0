@@ -1,0 +1,379 @@
+:root {
+  font-family: Pretendard, system-ui, sans-serif;
+  color: #1e293b;
+  background:
+    radial-gradient(circle at top left, rgba(191, 219, 254, 0.65), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(221, 214, 254, 0.72), transparent 34%),
+    linear-gradient(180deg, #eef6ff 0%, #f8fbff 48%, #eef2ff 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+  filter: grayscale(0.25);
+}
+
+.page,
+.survey-shell {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2.25rem 1rem 4rem;
+}
+
+.card,
+.survey-card,
+.info-card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 28px;
+  padding: 1.65rem;
+  box-shadow: 0 18px 45px rgba(15,23,42,0.1);
+  border: 1px solid rgba(219,234,254,0.95);
+}
+
+.title {
+  font-size: clamp(2rem,4vw,3rem);
+  margin-bottom: 0.5rem;
+  font-weight: 900;
+  color: #172554;
+}
+
+.subtitle {
+  color: #64748b;
+  line-height: 1.75;
+}
+
+.primary,
+.secondary,
+.panel-toggle {
+  border-radius: 16px;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  font-weight: 800;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.primary {
+  background: linear-gradient(90deg,#2563eb,#7c3aed);
+  color:white;
+  border:none;
+  box-shadow:0 10px 22px rgba(37,99,235,0.22);
+}
+
+.primary:hover:not(:disabled),
+.secondary:hover:not(:disabled),
+.panel-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.secondary,
+.panel-toggle {
+  background:white;
+  color:#334155;
+  border:1px solid #bfdbfe;
+}
+
+.interrupt {
+  border-color:#f59e0b;
+  color:#92400e;
+  background:#fffbeb;
+}
+
+.consent-button.ready,
+.create-id-button.ready,
+.start-survey-button {
+  background: linear-gradient(90deg,#16a34a,#2563eb);
+  box-shadow:0 10px 24px rgba(22,163,74,0.22);
+}
+
+.agreed {
+  color:#15803d;
+  font-weight:800;
+}
+
+.actions{
+  display:flex;
+  gap:0.75rem;
+  flex-wrap:wrap;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:0.4rem;
+  margin-bottom:1rem;
+}
+
+input,
+select{
+  border:1px solid #cbd5e1;
+  border-radius:14px;
+  padding:0.85rem 0.95rem;
+  background:#fff;
+}
+
+.status,
+.voice-badge{
+  display:inline-flex;
+  align-items:center;
+  background:#dbeafe;
+  color:#1d4ed8;
+  padding:0.5rem 0.85rem;
+  border-radius:999px;
+  font-size:0.9rem;
+  font-weight:900;
+}
+
+.question{
+  font-size:1.42rem;
+  font-weight:900;
+  line-height:1.75;
+  color:#0f172a;
+}
+
+.helper{
+  color:#64748b;
+  font-size:0.95rem;
+}
+
+.error-text{
+  color:#dc2626;
+  font-weight:800;
+}
+
+.survey-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+.eyebrow{
+  margin:0 0 0.3rem;
+  color:#2563eb;
+  font-weight:900;
+  letter-spacing:0.08em;
+  font-size:0.78rem;
+  text-transform:uppercase;
+}
+
+.survey-top h1{
+  margin:0;
+  color:#172554;
+}
+
+.question-counter{
+  background:#eff6ff;
+  color:#1d4ed8;
+  border:1px solid #bfdbfe;
+  border-radius:999px;
+  padding:0.55rem 0.9rem;
+  font-weight:900;
+}
+
+.survey-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(280px,0.75fr);
+  gap:1rem;
+  margin-top:1.25rem;
+}
+
+.question-panel{
+  background:linear-gradient(180deg,#ffffff,#f8fbff);
+  border:1px solid #dbeafe;
+  border-radius:24px;
+  padding:1.4rem;
+}
+
+.side-panel{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.info-card{
+  border-radius:24px;
+  padding:1.2rem;
+}
+
+.info-card h3{
+  margin-top:0;
+  color:#172554;
+}
+
+.status-line{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  padding:0.85rem;
+  color:#334155;
+  font-weight:700;
+  line-height:1.5;
+}
+
+.transcript-box{
+  margin-top:0.8rem;
+  min-height:88px;
+  background:#eff6ff;
+  border:1px dashed #93c5fd;
+  border-radius:16px;
+  padding:0.9rem;
+  color:#1e3a8a;
+  line-height:1.55;
+}
+
+.main-actions{
+  margin-top:1.25rem;
+}
+
+.range-field{
+  display:flex;
+  flex-direction:column;
+  gap:0.45rem;
+  margin-top:0.9rem;
+  font-weight:800;
+  color:#334155;
+}
+
+.range-field input{
+  padding:0;
+}
+
+.panel-toggle{
+  width:100%;
+}
+
+.state-reading{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.state-listening{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.state-recognized{
+  background:#dbeafe;
+  color:#1d4ed8;
+}
+
+.state-manual{
+  background:#ede9fe;
+  color:#6d28d9;
+}
+
+.state-error{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+}
+
+.metric{
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  border-radius:18px;
+  padding:1rem;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.table th,
+.table td{
+  border-bottom:1px solid #e5e7eb;
+  padding:0.75rem;
+  text-align:left;
+}
+
+.bar-item{
+  margin-bottom:0.8rem;
+}
+
+.bar-track{
+  background:#e5e7eb;
+  border-radius:999px;
+  height:12px;
+  overflow:hidden;
+}
+
+.bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,#2563eb,#7c3aed);
+}
+
+@media (max-width:840px){
+  .survey-layout,
+  .grid-2,
+  .result-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.page-toolbar{
+  max-width:1120px;
+  margin:0 auto 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.home-button{
+  display:inline-flex;
+  align-items:center;
+  gap:0.45rem;
+  border:1px solid #93c5fd;
+  background:rgba(255,255,255,0.92);
+  color:#1d4ed8;
+  padding:0.65rem 1rem;
+  border-radius:999px;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(37,99,235,0.12);
+  cursor:pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.home-button:hover{
+  transform:translateY(-2px);
+  background:#eff6ff;
+  box-shadow:0 14px 30px rgba(37,99,235,0.18);
+}
+
+.home-button:active{
+  transform:translateY(0);
+}
+
+.home-icon{
+  font-size:1.05rem;
+}
