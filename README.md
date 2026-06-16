@@ -22,7 +22,8 @@
 
 ### 2. System Architecture
 본 시스템은 확장성과 유지보수성을 고려하여 3계층 구조(3-Tier Architecture)로 설계되었습니다.
-`SvelteKit (화면 단)` ➡️ `FastAPI Routers ➡️ Services ➡️ Data (CSV/JSON)`
+
+`SvelteKit (화면 단)` → `FastAPI Routers` → `Services` → `Data (CSV/JSON)`
 
 ---
 
