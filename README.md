@@ -51,16 +51,20 @@
 ## ⚙️ 실행 방법 (Getting Started)
 
 ### Backend
+```
 cd backend
 python -m venv .venv
 source .venv/bin/activate  # Linux/macOS
 pip install -r requirements.txt
 uvicorn app.main:app --reload
+```
 
 ### Frontend
+```
 cd frontend
 npm install
 npm run dev
+```
 
 ### 기본 접속 주소: http://127.0.0.1:5173
 
