@@ -70,6 +70,9 @@ npm run dev
 
 ### 기본 접속 주소: http://127.0.0.1:5173
 
+### 시연 영상 링크: https://youtu.be/L0D2BZKEkc
+
+
 ---
 
 ## 💡 프로젝트를 통해 얻은 점 (Retrospective)
