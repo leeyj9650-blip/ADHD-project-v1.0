@@ -1,25 +1,40 @@
 <script>
-  import { goto } from '$app/navigation';
-  import { api } from '$lib/api';
-  import { saveUserId } from '$lib/storage';
+  import { goto } from "$app/navigation";
+  import { api } from "$lib/api";
+  import { saveUserId } from "$lib/storage";
 
-  const regionOptions = ['서울', '경기', '수원', '인천', '대전', '대구', '부산', '충남', '충북', '전남', '전북', '경남', '경북', '제주'];
+  const regionOptions = [
+    "서울",
+    "경기",
+    "수원",
+    "인천",
+    "대전",
+    "대구",
+    "부산",
+    "충남",
+    "충북",
+    "전남",
+    "전북",
+    "경남",
+    "경북",
+    "제주",
+  ];
 
   let form = {
-    user_name: '',
-    gender: '남자',
-    age_group: '20대',
-    region: '서울',
-    consent: true
+    user_name: "",
+    gender: "남자",
+    age_group: "20대",
+    region: "서울",
+    consent: true,
   };
 
-  let userCode = '';
+  let userCode = "";
   let loading = false;
-  let error = '';
+  let error = "";
   let copied = false;
 
   async function startSurvey() {
-    error = '';
+    error = "";
     loading = true;
     copied = false;
 
@@ -27,6 +42,7 @@
       const data = await api.startUser(form);
       userCode = data.user_id;
       saveUserId(userCode);
+      await copyUserCode();
     } catch (e) {
       error = e.message;
     } finally {
@@ -44,12 +60,12 @@
         copied = false;
       }, 1500);
     } catch (e) {
-      alert('복사에 실패했습니다. 직접 복사해주세요.');
+      alert("복사에 실패했습니다. 직접 복사해주세요.");
     }
   }
 
   function moveSurvey() {
-    goto('/survey');
+    goto("/survey");
   }
 </script>
 
@@ -58,22 +74,26 @@
     <h1>사용자 정보 입력</h1>
 
     <div class="field">
-      <label>이름 또는 닉네임</label>
-      <input bind:value={form.user_name} placeholder="예: 홍길동" />
+      <label for="user-name-input">이름 또는 닉네임</label>
+      <input
+        id="user-name-input"
+        bind:value={form.user_name}
+        placeholder="예: 홍길동"
+      />
     </div>
 
     <div class="grid-2">
       <div class="field">
-        <label>성별</label>
-        <select bind:value={form.gender}>
+        <label for="gender-select">성별</label>
+        <select id="gender-select" bind:value={form.gender}>
           <option>남자</option>
           <option>여자</option>
         </select>
       </div>
 
       <div class="field">
-        <label>연령대</label>
-        <select bind:value={form.age_group}>
+        <label for="age-group-select">연령대</label>
+        <select id="age-group-select" bind:value={form.age_group}>
           <option>10대</option>
           <option>20대</option>
           <option>30대</option>
@@ -86,8 +106,8 @@
     </div>
 
     <div class="field">
-      <label>지역</label>
-      <select bind:value={form.region}>
+      <label for="region-select">지역</label>
+      <select id="region-select" bind:value={form.region}>
         {#each regionOptions as region}
           <option value={region}>{region}</option>
         {/each}
@@ -105,7 +125,9 @@
       </button>
 
       {#if userCode}
-        <button class="primary start-survey-button" on:click={moveSurvey}>설문 시작</button>
+        <button class="primary start-survey-button" on:click={moveSurvey}
+          >설문 시작</button
+        >
       {/if}
     </div>
 
@@ -117,7 +139,9 @@
       <div class="card" style="margin-top:1.5rem; background:#faf5ff;">
         <h3>고유번호가 생성되었습니다</h3>
 
-        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:12px 0;">
+        <div
+          style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:12px 0;"
+        >
           <input
             value={userCode}
             readonly
